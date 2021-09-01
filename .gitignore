@@ -1,9 +1,9 @@
+/92
 /build
 /ui
-/92
 /driver
-/dist
 .idea
+/dist
 /venv
 /client
 __pycache__/
