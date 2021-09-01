@@ -3,7 +3,9 @@
 [다운로드 링크](https://drive.google.com/file/d/1JfsYml6p-vij7XRWCDFAvcxbAmIfCzOY/view?usp=sharing)
 
 좋아요나 음원 다운로드는 직접 해야합니다 ㅠ
+
 음원 다운로드 경로는 Genie.exe가 있는 경로로 자동 지정되며,
+
 삭제는 자동으로 됩니다.
 
 #### 1. Genie.exe 실행
