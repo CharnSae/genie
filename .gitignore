@@ -1,0 +1,11 @@
+/build
+/ui
+/92
+/driver
+/dist
+.idea
+/venv
+/client
+__pycache__/
+main.spec
+*.mp3
