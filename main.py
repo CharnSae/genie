@@ -8,12 +8,15 @@ from selenium import webdriver as wd
 
 class GenieAutoSignIn:
     def __init__(self):
-        self.password = input("공용 비밀번호를 입력해주세요.\n")
+        self.password = ''
         self.download_folder = os.getcwd()
         self.driver = self.install_or_get_chrome_driver()
         self.URL = 'https://www.genie.co.kr/search/searchMain?query=talk%2520%2526%2520talk'
         self.file_name = '프로미스나인_Talk & Talk.mp3'
         self.main_window = None
+
+    def set_password(self):
+        self.password = input("공용 비밀번호를 입력해주세요.\n")
 
     def install_or_get_chrome_driver(self):
         chrome_version = installer.get_chrome_version().split('.')[0]
@@ -70,9 +73,9 @@ class GenieAutoSignIn:
 
     def delete_mp3_file(self):
         try:
-            os.remove(f'{self.download_folder}/{self.file_name}')
+            os.remove(f'{self.download_folder}\\{self.file_name}')
         except FileNotFoundError as e:
-            print(e, '\n이미 삭제되었거나 경로에 음원이 없습니다.\n 다른 경로에 있을 경우 음원을 직접 삭제해주세요')
+            print(e, '\n이미 삭제되었거나 경로에 음원이 없습니다.\n다른 경로에 있을 경우 음원을 직접 삭제해주세요')
             print(f'음원 저장경로는 {os.getcwd()}입니다.\n')
 
     def sign_out(self):
@@ -84,7 +87,7 @@ class GenieAutoSignIn:
             self.toggle_genie_account_form()
             return
 
-    def get_command(self) -> str:
+    def get_command(self):
         return input('[1]: 로그아웃 후 다른 아이디로 로그인하기, [2]: 종료\n')
 
     def get_user_id(self):
@@ -93,6 +96,8 @@ class GenieAutoSignIn:
     def run(self):
         genie.open_genie_web()
         genie.sign_out()
+        genie.set_password()
+
         while True:
             user_id = self.get_user_id()
             if not user_id or user_id == '\n':
