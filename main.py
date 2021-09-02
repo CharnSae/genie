@@ -88,7 +88,9 @@ class GenieAutoSignIn:
             return
 
     def get_command(self):
-        return input('[1]: 로그아웃 후 다른 아이디로 로그인하기, [2]: 종료\n')
+        print('좋아요/음원 다운로드를 진행해주세요.')
+        print('완료 후 결제 및 음원 다운로드 창이 켜져있다면 종료한뒤 선택해주세요')
+        return input('[1]: 로그아웃 후 다른 아이디로 로그인하기, [2]: 종료\n>>')
 
     def get_user_id(self):
         return input('로그인할 아이디를 입력하고 엔터를 누르세요\n>>').strip()
