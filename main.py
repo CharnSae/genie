@@ -62,8 +62,8 @@ class GenieAutoSignIn:
 
         time.sleep(0.3)  # due to network delay
         sign_in_message = self.driver.find_element_by_id('signinMessage')
-        if sign_in_message and len(self.driver.window_handles) > 1:
-            print(f'에러={sign_in_message.text} 직접 로그인하세요.')
+        if len(sign_in_message) > 0 and len(self.driver.window_handles) > 1:
+            print(f'에러: {sign_in_message.text}, 직접 로그인하세요.')
 
         while True:
             if len(self.driver.window_handles) == 1:
