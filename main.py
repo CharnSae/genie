@@ -16,7 +16,7 @@ class GenieAutoSignIn:
         self.main_window = None
 
     def set_password(self):
-        self.password = input("공용 비밀번호를 입력해주세요.\n")
+        self.password = input("공용 비밀번호를 입력해주세요.\n>>")
 
     def install_or_get_chrome_driver(self):
         chrome_version = installer.get_chrome_version().split('.')[0]
@@ -91,7 +91,7 @@ class GenieAutoSignIn:
         return input('[1]: 로그아웃 후 다른 아이디로 로그인하기, [2]: 종료\n')
 
     def get_user_id(self):
-        return input('로그인할 아이디를 입력하고 엔터를 누르세요\n').strip()
+        return input('로그인할 아이디를 입력하고 엔터를 누르세요\n>>').strip()
 
     def run(self):
         genie.open_genie_web()
