@@ -11,8 +11,8 @@ class GenieAutoSignIn:
         self.password = ''
         self.download_folder = os.getcwd()
         self.driver = self.install_or_get_chrome_driver()
-        self.URL = 'https://www.genie.co.kr/search/searchMain?query=talk%2520%2526%2520talk'
-        self.file_name = '프로미스나인_Talk & Talk.mp3'
+        self.URL = 'https://www.genie.co.kr/search/searchMain?query=dm'
+        self.file_name = '프로미스나인_DM.mp3'
         self.main_window = None
 
     def set_password(self):
@@ -96,24 +96,24 @@ class GenieAutoSignIn:
         return input('로그인할 아이디를 입력하고 엔터를 누르세요\n>>').strip()
 
     def run(self):
-        genie.open_genie_web()
-        genie.sign_out()
-        genie.set_password()
+        self.open_genie_web()
+        self.sign_out()
+        self.set_password()
 
         while True:
             user_id = self.get_user_id()
             if not user_id or user_id == '\n':
                 continue
-            genie.sign_in(user_id)
+            self.sign_in(user_id)
 
             command = self.get_command()
             while command not in {'1', '2'}:
                 command = self.get_command()
 
-            genie.delete_mp3_file()
+            self.delete_mp3_file()
 
             if command == '1':
-                genie.sign_out()
+                self.sign_out()
                 continue
             if command == '2':
                 self.driver.close()
